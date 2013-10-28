@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -34,6 +33,7 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem "rspec-rails", "~> 2.14.0"
   gem "guard-rspec", "3.0.0" 
   gem "factory_girl_rails", "4.2.1"
