@@ -1,4 +1,9 @@
 Testisis::Application.routes.draw do
+  get "friends/index"
+  get "session/new"
+  get "session/facebook_callback"
+  get "session/destroy"
+  root 'session#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

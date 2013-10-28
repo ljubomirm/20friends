@@ -1,0 +1,6 @@
+= link_to "Log out", session_destroy_path
+
+- for friend in @friends
+	%dl
+		%dt= friend.name
+		%dd= image_tag(friend.picture_url)
