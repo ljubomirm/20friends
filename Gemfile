@@ -37,12 +37,17 @@ group :development, :test do
   gem 'sqlite3'
   gem "rspec-rails", "~> 2.14.0"
   gem "guard-rspec", "3.0.0" 
+  gem "growl"
   gem "factory_girl_rails", "4.2.1"
   gem "shoulda-matchers", "2.2.0"
   gem "capybara", "2.1.0"
   gem "webrat", "0.7.3"
   gem "thin"
   gem "pry", "~> 0.9.12.2"
+end
+
+group :test do
+    gem "webmock", "1.15.0"
 end
 
 group :production do
