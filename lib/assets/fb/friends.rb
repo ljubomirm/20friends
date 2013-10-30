@@ -1,4 +1,5 @@
-class Friends
+class Fb::Friends
+	attr_accessor :data
 
 	def initialize(access_token)
 		@data = Net::HTTP.get(URI("https://graph.facebook.com/me/friends?fields=picture,name&access_token=#{access_token}"))
@@ -10,6 +11,7 @@ class Friends
 	
 	def list_20
 		data = to_array
+
 		return [] if data.nil?
 		list = []
 		(1..20).each do |i|
