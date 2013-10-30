@@ -1,15 +1,25 @@
-require  "./lib/assets/fb/friends.rb"
+require "spec_helper.rb"
+require "./lib/assets/fb.rb"
+require "./lib/assets/fb/friends.rb"
+require "./config/initializers/facebook_init.rb"
+require "webmock/rspec"
 
-describe Friends do
+describe Fb::Friends do
 	context "Initialization" do
-	  #subject { Friends.new() }
 
-	  pending "should parse json data on users friends" do
-	  	
-	  end
+    before do
+      @access_token = "fake_access_token"
+      stub_request(:get, "https://graph.facebook.com/me/friends?fields=picture,name&access_token=#{@access_token}")
+    end
 
-	 	pending "#list_20 should return an array of 20 friends with their names and avatar pictures" do
-	    
+    subject do 
+    	fb_friends = Fb::Friends.new(@access_token)
+    	fb_friends.stub(:to_array) { FB_DATA_ARRAY }
+    	fb_friends
+    end
+
+	 	it "#list_20 should return an array of 20 friends with their names and avatar pictures" do
+	    expect(subject.list_20).to have(20).items
 	  end
 	end
 
