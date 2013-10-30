@@ -1,7 +1,6 @@
 require "spec_helper.rb"
 require "./lib/assets/fb.rb"
 require "./lib/assets/fb/friends.rb"
-require "./config/initializers/facebook_init.rb"
 require "webmock/rspec"
 
 describe Fb::Friends do
@@ -22,6 +21,4 @@ describe Fb::Friends do
 	    expect(subject.list_20).to have(20).items
 	  end
 	end
-
-
 end
